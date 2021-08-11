@@ -4,6 +4,8 @@ import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo:'auth'}
@@ -11,18 +13,22 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     AuthModule,
     MainModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
