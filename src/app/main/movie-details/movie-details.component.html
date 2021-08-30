@@ -1,1 +1,18 @@
-<p>movie-details works!</p>
+<div *ngIf="movie">
+    <h1>{{movie.title | titlecase}}</h1>
+    <p>{{movie.description}}</p>
+    <i class="fa fa-star" [ngClass] = "{'orange': movie.avg_ratings > 0, 'gray': movie.avg_ratings < 1}"></i>
+    <i class="fa fa-star" [ngClass] = "{'orange': movie.avg_ratings > 1, 'gray': movie.avg_ratings < 2}"></i>
+    <i class="fa fa-star" [ngClass] = "{'orange': movie.avg_ratings > 2, 'gray': movie.avg_ratings < 3}"></i>
+    <i class="fa fa-star" [ngClass] = "{'orange': movie.avg_ratings > 3, 'gray': movie.avg_ratings < 4}"></i>
+    <i class="fa fa-star" [ngClass] = "{'orange': movie.avg_ratings > 4, 'gray': movie.avg_ratings < 5}"></i>
+    {{movie.avg_ratings}}   ({{movie.no_of_ratings}})
+    <div id="rate-container">
+        <h2>Rate it!</h2>
+        <i *ngFor="let rate of [1,2,3,4,5]" class="fa fa-star" (mouseenter)="rateMovie(rate)"
+           (mouseleave) = "rateHovered=0" [ngClass] = "{'orange': rateHovered >= rate, 'gray': rateHovered < rate}" (click)="rateClicked(rate)"></i>
+    </div>
+</div>
+
+
+
