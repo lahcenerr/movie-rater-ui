@@ -1,6 +1,5 @@
 import { Component, Input,Output, EventEmitter, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
-import { Movie } from 'src/app/models/movie';
 
 
 @Component({

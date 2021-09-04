@@ -1,4 +1,34 @@
-<div *ngFor="let movie of movies" (click)="movieClicked(movie)">
-    <h3 >{{movie.title | titlecase}}</h3>
+<div *ngFor="let movie of movies" class="movie-item">
+    <h3 (click)="movieClicked(movie)">{{movie.title | titlecase}}</h3>
+    <i class="fa fa-edit" (click)=editMovie(movie)></i>
+    <i class="fa fa-trash" (click)="deleteMovie(movie)"></i>
 </div>
+<button type="button" class="btn btn-primary" (click)="newMovie()">New Movie</button>
 
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h4 class="modal-title">{{editAdd}}</h4>
+       <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+     </div>
+     <div class="modal-body">
+       <form [formGroup]="movieForm" (ngSubmit)="saveForm()">
+           <label>Title</label><br>
+           <input type="text" formControlName="title" /><br>
+
+           <label>Description</label><br>
+           <textarea type="text" formControlName="description" ></textarea><br><br>
+           <div style="text-align: right;">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>&nbsp;
+                <button type="button" class="btn btn-outline-warning" (click)="onCloseHandled()" >Close</button>
+            </div>
+       </form>
+
+     </div>
+     <div class="modal-footer">
+            </div>
+   </div>
+ </div>
+</div>

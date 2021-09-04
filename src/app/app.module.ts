@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo:'auth'}
@@ -22,6 +23,7 @@ const routes: Routes = [
     MainModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    NgbModule
   ],
   exports: [
     RouterModule

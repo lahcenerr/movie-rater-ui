@@ -21,6 +21,18 @@ export class ApiService {
     return this.httpClient.get(`${this.baseUrl}${id}/`, {headers: this.headers});
   }
 
+  createMovie(title: string, description: string){
+    const body = {title: title, description: description}
+    return this.httpClient.post(`${this.baseUrl}`, body, {headers: this.headers});
+  }
+  updateMovie(id: any, title: string, description: string){
+    const body = {title: title, description: description}
+    return this.httpClient.put(`${this.baseUrl}${id}/`, body, {headers: this.headers});
+  }
+
+  deleteMovie(id: any){
+    return this.httpClient.delete(`${this.baseUrl}${id}/`, {headers: this.headers});
+  }
   rateMovie(rate: number, movieId: number){
     const body = {
       stars: rate

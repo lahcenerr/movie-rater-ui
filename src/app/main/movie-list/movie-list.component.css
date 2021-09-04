@@ -1,0 +1,32 @@
+.movie-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    margin-right: 15px;
+}
+
+.movie-item i {
+    font-size: 1.3em;
+    margin: 15px 5px;
+    cursor: pointer;
+}
+
+.fa.fa-trash {
+    color: rgb(187, 31, 31);
+}
+
+h3 {
+    cursor: pointer;
+}
+
+button.new-movie {
+    background-color: rgba(54, 73, 131, 0.788);
+}
+
+.backdrop{
+    background-color:rgba(0,0,0,0.6);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    }
