@@ -4,3 +4,13 @@
     height: calc(100vh - 100px);
     padding: 20px;
 }
+
+h1 {
+    color: orange;
+}
+
+h1 i {
+    color: orange;
+    transform:rotate(30deg);
+    /* display: inline-block; */
+}

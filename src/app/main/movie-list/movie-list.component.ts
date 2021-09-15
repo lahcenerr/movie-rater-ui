@@ -26,6 +26,14 @@ export class MovieListComponent implements OnInit {
   ngOnInit(){
       console.log(this.movies)
      }
+
+  formDisabled(){
+  if (this.movieForm.value.title.length && this.movieForm.value.description.length){
+    return false;
+  } else {
+    return true;
+  }
+  }
   movieClicked(movie: any){
     this.selectedMovie.emit(movie);
   }
