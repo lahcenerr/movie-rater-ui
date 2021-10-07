@@ -1,3 +1,6 @@
+<div style="text-align: right;">
+    <button type="submit" class="btn btn-warning" (click)="logoff()">Sign out</button>&nbsp;
+</div>
 <div class="layout">
     <app-movie-list [movies]="movies" (selectedMovie)="selectMovie($event)"></app-movie-list>
     <app-movie-details [movie]="selectedMovie" (updatedMovie)="selectMovie($event)"></app-movie-details>

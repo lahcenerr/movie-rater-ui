@@ -1,1 +1,29 @@
-<p>auth works!</p>
+<h1 style="text-align:center">
+    Login to view movies
+  </h1>
+  <div class="login">
+    <h2 class="login-header">Log in</h2>
+    <form [formGroup]="authForm" class="login-container" (ngSubmit)="signIn()">
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+        <input type="username" placeholder="Username" formControlName="username">
+      </p>
+      <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+        <div *ngIf="formControls.username.errors.required">Email is required</div>
+      </div>
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Password" formControlName="password">
+      </p>
+      <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+        <div *ngIf="formControls.password.errors.required">Password is required</div>
+        <!-- <div *ngIf="formControls.password.errors.pattern">Password must contain 1 upper case 1 lower case and a number</div> -->
+      </div>
+      <p *ngIf="!registerMode">
+        <input type="submit" value="Login">
+      </p>
+      <p *ngIf="registerMode">
+        <input type="submit" value="Register">
+      </p>
+    </form>
+    <span *ngIf="!registerMode" (click)="registerMode = true"> You don't have an account? click here to register</span>
+    <span *ngIf="registerMode" (click)="registerMode = false"> You have an account? click here to login</span>
+  </div>
